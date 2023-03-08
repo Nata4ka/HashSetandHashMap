@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.*;
+
 public class Main {
     private static final String TEXT = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
             "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
@@ -26,23 +27,30 @@ public class Main {
                 }
             }
         }
-        Map.Entry<Character,Integer>maxValue = null;
-        for (Map.Entry<Character,Integer> elements : map.entrySet()){
-            if(maxValue == null || elements.getValue()>maxValue.getValue()){
-                maxValue=elements;
-            }
-        }
-        Map.Entry<Character,Integer>minValue = null;
-        for (Map.Entry<Character,Integer> elements : map.entrySet()){
-            if(minValue == null || elements.getValue()<minValue.getValue()){
-                minValue=elements;
-            }
-        }
         System.out.println(map);
-        System.out.println("Максимальное количество элементов: " + maxValue);
-        System.out.println("Минимальное количество элементов: " + minValue);
-
-
-
+        Main.maxValue(map);
+        Main.minValue(map);
     }
+
+    public static void maxValue(Map<Character, Integer> map) {
+        Map.Entry<Character, Integer> maxValue = null;
+        for (Map.Entry<Character, Integer> elements : map.entrySet()) {
+            if (maxValue == null || elements.getValue() > maxValue.getValue()) {
+                maxValue = elements;
+            }
+        }
+        System.out.println("Максимальное количество элементов: " + maxValue);
+    }
+
+    public static void minValue(Map<Character, Integer> map) {
+        Map.Entry<Character, Integer> minValue = null;
+        for (Map.Entry<Character, Integer> elements : map.entrySet()) {
+            if (minValue == null || elements.getValue() < minValue.getValue()) {
+                minValue = elements;
+            }
+        }
+        System.out.println("Минимальное количество элементов: " + minValue);
+    }
+
+
 }
